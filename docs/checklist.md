@@ -35,15 +35,17 @@ what a stranger's machine sees, not what this machine's stored credentials can r
 - [x] `Patrick-DE/claude-secdude-plugins` is public and `.claude-plugin/marketplace.json` is present
       at the expected path in the clone.
 - [x] `claude-adapt-rules` resolves: anonymous clone succeeds, `.claude-plugin/plugin.json` is at the
-      repository root, and its `name` matches the catalog entry (version `0.1.10`).
-- [ ] **`claude-idle-shutdown` does NOT resolve. The repository is private.** Anonymous clone is
-      rejected, and `gh repo view` reports `"visibility":"PRIVATE"`. Everyone except the owner gets a
-      failed install from this catalog entry. The owner's own machine resolves it through stored git
-      credentials, which is exactly why an authenticated test would have passed and proved nothing.
+      repository root, its `name` matches the catalog entry, version `0.1.10`. Ships the
+      `claude-adapt-rules` skill; hooks are declared inline in `plugin.json`.
+- [x] `claude-idle-shutdown` resolves: anonymous clone succeeds, manifest name matches the catalog
+      entry, version `0.1.0`. Ships `shutdown-cancel`, `shutdown-status`, `shutdown-when-idle` and a
+      `hooks/hooks.json`.
 
-      Fix: make the repository public. Vendoring the plugin into this marketplace repository with a
-      relative-path source is not a privacy-preserving alternative — this marketplace repository is
-      itself public, so the code would be published either way.
+      This entry initially **failed** — the repository was private, so every install would have broken
+      for everyone but the owner while the owner's own credentialed machine resolved it fine. It was
+      made public on 2026-08-07 and re-tested anonymously. Recorded because it is the reason the test
+      is run with credentials disabled: an authenticated check passes in both worlds and proves
+      nothing.
 
 ## Not verified — needs a human
 
