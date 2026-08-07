@@ -1,0 +1,67 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "secdude-plugins",
+  "description": "Claude Code plugins by secdude: agents that learn from your corrections, and machines that shut themselves down when the work is finished.",
+  "owner": {
+    "name": "Patrick Eisenschmidt",
+    "email": "support@secdude.de",
+    "url": "https://github.com/Patrick-DE"
+  },
+  "plugins": [
+    {
+      "name": "claude-adapt-rules",
+      "source": {
+        "source": "github",
+        "repo": "Patrick-DE/claude-adapt-rules"
+      },
+      "description": "Mines your Claude Code sessions for the corrections you had to repeat, then distils them into evidence-backed rules — per-repo automatically, global only with your approval.",
+      "author": {
+        "name": "Patrick Eisenschmidt",
+        "email": "support@secdude.de"
+      },
+      "homepage": "https://github.com/Patrick-DE/claude-adapt-rules#readme",
+      "repository": "https://github.com/Patrick-DE/claude-adapt-rules",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": [
+        "claude-code",
+        "rules",
+        "claude-md",
+        "transcripts",
+        "self-improvement",
+        "memory",
+        "python"
+      ],
+      "tags": [
+        "requires-python"
+      ]
+    },
+    {
+      "name": "claude-idle-shutdown",
+      "source": {
+        "source": "github",
+        "repo": "Patrick-DE/claude-idle-shutdown"
+      },
+      "description": "Arms a watchdog that powers the machine off once every Claude session on it has gone idle.",
+      "author": {
+        "name": "Patrick Eisenschmidt",
+        "email": "support@secdude.de"
+      },
+      "homepage": "https://github.com/Patrick-DE/claude-idle-shutdown#readme",
+      "repository": "https://github.com/Patrick-DE/claude-idle-shutdown",
+      "license": "MIT",
+      "category": "automation",
+      "keywords": [
+        "shutdown",
+        "power",
+        "automation",
+        "idle",
+        "unattended"
+      ],
+      "tags": [
+        "requires-node",
+        "powers-off-your-machine"
+      ]
+    }
+  ]
+}

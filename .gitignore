@@ -1,0 +1,13 @@
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+*.swp
+
+# Claude Code local state
+.claude/settings.local.json
+.claude/worktrees/
+
+# Plugin working copies, if anyone clones them in here.
+# This repo is a catalog only — plugin code belongs in its own repository.
+/claude-adapt-rules/
+/claude-idle-shutdown/
