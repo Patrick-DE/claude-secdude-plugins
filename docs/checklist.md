@@ -47,13 +47,22 @@ what a stranger's machine sees, not what this machine's stored credentials can r
       is run with credentials disabled: an authenticated check passes in both worlds and proves
       nothing.
 
+## In-app round trip
+
+- [x] `/plugin marketplace add` works. Claude Code cloned the catalog and parsed both entries;
+      registered in `known_marketplaces.json`.
+- [x] **`/plugin install` failed, and the cause is fixed.** With `github` sources, both plugins failed
+      with `git@github.com: Permission denied (publickey)` — the installer clones a `github` source
+      over SSH. Switched both entries to `{"source": "url", "url": "https://…"}`. See
+      [plan.md](plan.md).
+- [ ] Re-test after pushing: `/plugin marketplace update secdude-plugins`, then install each plugin
+      and confirm its skills appear. The fix is reasoned from the logged error and reproduced by hand;
+      it has not been confirmed through the installer itself.
+
 ## Not verified — needs a human
 
 - [ ] `claude plugin validate .` — the `claude` CLI is not on PATH in the environment this was built
       in, so schema validation was never actually run.
-- [ ] The full in-app round trip (`/plugin marketplace add` → `/plugin install` → plugin loads and its
-      skills appear). The clone-and-resolve test above covers source resolution only; it does not
-      exercise Claude Code's own installer, manifest parsing, or component registration.
 
 ## Decided
 

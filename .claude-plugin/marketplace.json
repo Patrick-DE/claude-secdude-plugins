@@ -11,8 +11,8 @@
     {
       "name": "claude-adapt-rules",
       "source": {
-        "source": "github",
-        "repo": "Patrick-DE/claude-adapt-rules"
+        "source": "url",
+        "url": "https://github.com/Patrick-DE/claude-adapt-rules.git"
       },
       "description": "Mines your Claude Code sessions for the corrections you had to repeat, then distils them into evidence-backed rules — per-repo automatically, global only with your approval.",
       "author": {
@@ -39,8 +39,8 @@
     {
       "name": "claude-idle-shutdown",
       "source": {
-        "source": "github",
-        "repo": "Patrick-DE/claude-idle-shutdown"
+        "source": "url",
+        "url": "https://github.com/Patrick-DE/claude-idle-shutdown.git"
       },
       "description": "Arms a watchdog that powers the machine off once every Claude session on it has gone idle.",
       "author": {

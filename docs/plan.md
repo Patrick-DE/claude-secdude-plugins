@@ -61,6 +61,31 @@ the only one that also offers `claude-idle-shutdown`.
 The cost is one duplicated description to keep roughly in step. That is cheaper than breaking
 existing installs.
 
+## Sources use `url` (explicit HTTPS), not `github`
+
+Both entries were first written as `{"source": "github", "repo": "Patrick-DE/…"}`. Marketplace
+registration worked, but every `/plugin install` from the catalog failed:
+
+```
+× Failed to install plugin: Failed to clone repository:
+git@github.com: Permission denied (publickey).
+```
+
+Claude Code resolves a `github` plugin source to an SSH remote (`git@github.com:owner/repo.git`) and
+clones it into a temp directory under the plugin cache. On a machine with no working GitHub SSH key
+that clone fails, and the install aborts before anything is written. Confirmed on the failing machine:
+no `url.*.insteadOf` rewrite in any git config scope, `ssh -T git@github.com` rejected with
+`Permission denied (publickey)`, and a manual `git clone git@github.com:…` reproduced the installer's
+error exactly. It affected both plugins equally — it was never specific to one of them.
+
+`{"source": "url", "url": "https://github.com/…​.git"}` names the transport explicitly, so the clone
+uses HTTPS and works anonymously or through a credential helper. It supports the same `ref` and `sha`
+pinning as the `github` form, so nothing is given up.
+
+Worth knowing: this class of failure is invisible to a marketplace that ships its plugins as
+relative-path sources, because those are read out of the already-cloned marketplace repository and
+never trigger a second clone.
+
 ## Sources are unpinned, deliberately
 
 Neither entry sets `ref` or `sha`, so each plugin comes from its repository's default branch
