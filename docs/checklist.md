@@ -37,11 +37,16 @@
 - [ ] GitHub repository `Patrick-DE/claude-secdude-plugins` does not exist yet. The README's install
       command will fail until it is created and this repository is pushed.
 
+## Decided
+
+- [x] **The old `claude-adapt-rules` marketplace stays.** That repository keeps its own single-plugin
+      `.claude-plugin/marketplace.json` under the marketplace name `claude-adapt-rules`, so anyone who
+      already added it keeps working and nothing has to be migrated. Both marketplaces serve the same
+      plugin from the same repository; `secdude-plugins` is the one to point new users at. Nothing in
+      `claude-adapt-rules` was changed.
+
 ## Open decisions
 
-- [ ] `claude-adapt-rules` still carries its own single-plugin `.claude-plugin/marketplace.json`
-      under the marketplace name `claude-adapt-rules`. Two marketplaces now offer the same plugin.
-      Keep it for existing users, or remove it and add a redirect note to that repository's README.
 - [ ] `claude-adapt-rules` is version `0.1.10` in `plugin.json`, but the newest tag is `v0.1.9`.
 - [ ] `claude-idle-shutdown` has no release tags at all.
 - [ ] Once both repositories tag releases consistently, pin each entry with `ref` (and optionally

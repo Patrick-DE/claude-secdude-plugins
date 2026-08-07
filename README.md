@@ -37,6 +37,10 @@ the plugins.
 That split is deliberate: the two plugins have different toolchains (Python vs. Node) and different
 release cadences, and neither should be forced to move when the other ships.
 
+`claude-adapt-rules` also ships its own single-plugin marketplace, named `claude-adapt-rules`. It
+still works and is not going away — if you added it already, nothing to do. This catalog is the one
+that carries both plugins.
+
 ## Versions and pinning
 
 Neither entry pins a `ref` or `sha`, so each plugin is fetched from its repository's default branch

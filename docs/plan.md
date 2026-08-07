@@ -48,6 +48,19 @@ renamed or deleted. The catalog is small enough that this is a cheaper problem t
 | Monorepo with fresh history | Same coupling, and discards commit history from both repositories. |
 | Keep `claude-adapt-rules`' own single-plugin marketplace as the shared one | Its marketplace name is `claude-adapt-rules`. Users installing `claude-idle-shutdown@claude-adapt-rules` reads as a mistake, and the plugin repo would own a catalog listing a plugin it has nothing to do with. |
 
+## The old single-plugin marketplace stays
+
+`claude-adapt-rules` keeps its own `.claude-plugin/marketplace.json` under the marketplace name
+`claude-adapt-rules`. It is not removed and not redirected.
+
+Both catalogs list the same plugin from the same repository, so they cannot drift apart in content —
+only in metadata. Anyone who already ran `/plugin marketplace add Patrick-DE/claude-adapt-rules`
+keeps a working install with nothing to migrate. New users get pointed at `secdude-plugins`, which is
+the only one that also offers `claude-idle-shutdown`.
+
+The cost is one duplicated description to keep roughly in step. That is cheaper than breaking
+existing installs.
+
 ## Sources are unpinned, deliberately
 
 Neither entry sets `ref` or `sha`, so each plugin comes from its repository's default branch
