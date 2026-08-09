@@ -6,6 +6,7 @@ Thumbs.db
 # Claude Code local state
 .claude/settings.local.json
 .claude/worktrees/
+.claude/*.local.md
 
 # Plugin working copies, if anyone clones them in here.
 # This repo is a catalog only — plugin code belongs in its own repository.

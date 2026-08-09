@@ -1,0 +1,21 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: JSON syntax
+        run: python3 -m json.tool .claude-plugin/marketplace.json > /dev/null
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Schema validation
+        # Unverified assumption (2026-08-09): `plugin validate` is expected to run
+        # without authentication. If this step fails on auth, drop it — the JSON
+        # syntax gate above still stands.
+        run: claude plugin validate .

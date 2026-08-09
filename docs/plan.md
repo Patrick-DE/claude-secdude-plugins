@@ -86,7 +86,11 @@ Worth knowing: this class of failure is invisible to a marketplace that ships it
 relative-path sources, because those are read out of the already-cloned marketplace repository and
 never trigger a second clone.
 
-## Sources are unpinned, deliberately
+## Sources are unpinned, deliberately — superseded 2026-08-09
+
+> Both repositories now tag releases (`v0.1.11`, `v0.1.0`) and the catalog pins those refs.
+> Release flow: tag in the plugin repo first, then move the `ref` here. See
+> [harness-hardening.md](harness-hardening.md). The original reasoning below is kept for history.
 
 Neither entry sets `ref` or `sha`, so each plugin comes from its repository's default branch
 (`master` for `claude-adapt-rules`, `main` for `claude-idle-shutdown`). Version resolution then falls

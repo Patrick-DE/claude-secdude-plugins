@@ -1,0 +1,11 @@
+#!/bin/sh
+# Blocks commits with a broken catalog. Wire up once per clone:
+#   git config core.hooksPath .githooks
+set -e
+echo "[pre-commit] marketplace.json syntax"
+python -m json.tool .claude-plugin/marketplace.json > /dev/null
+# Full schema validation runs in CI; the claude CLI is optional in hook environments.
+if command -v claude >/dev/null 2>&1; then
+  echo "[pre-commit] claude plugin validate"
+  claude plugin validate .
+fi
