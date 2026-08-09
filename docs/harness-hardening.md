@@ -2,8 +2,12 @@
 
 **Status:** Shipped 2026-08-09. All three repos committed, pushed, tagged
 (`claude-adapt-rules` v0.1.11, `claude-idle-shutdown` v0.1.0), catalog pinned to those refs,
-ty debt fixed and gated in CI. Last human step: update the installed plugin to 0.1.11, then
-delete the remaining `hooks` block from `~/.claude/settings.json` (runbook step 5).
+ty debt fixed and gated in CI. 2026-08-09 evening: the first-ever Linux CI run caught a real
+pre-existing bug — `Path("C:\\...").name` on POSIX returns the whole string, so Windows-style
+cwds (which sit next to WSL-style ones in a single transcript store) produced no project name
+and inject went silent. Fixed host-independently via `PureWindowsPath` in **v0.1.12**; catalog
+pins moved there. Last human step: update the installed plugin to 0.1.12, then delete the
+remaining `hooks` block from `~/.claude/settings.json` (runbook step 5).
 
 Audit goal: reduce agent-introduced bugs. Diagnosis: the harness was instruction-heavy but
 enforcement-light — four competing planning frameworks, five review paths, three memory layers,
@@ -69,7 +73,8 @@ tie-breaks down once.
 - [x] Tags v0.1.11 / v0.1.0 pushed, catalog `ref` pins added
 - [x] ty diagnostics fixed (3 sites), ty gated in CI
 - [x] MongoDB: decision recorded — stays desktop-global
-- [ ] Human: update installed plugin to 0.1.11, then delete `hooks` block from
+- [x] POSIX cwd-parsing bug (found by first CI run) fixed in v0.1.12, regression-tested
+- [ ] Human: update installed plugin to 0.1.12, then delete `hooks` block from
       `~/.claude/settings.json` (guard fires twice until then — do it in that order)
 - [ ] Optional: disable feature-dev (`"feature-dev@claude-plugins-official": false`)
 - [ ] Optional: retire R-0004/R-0024/R-0025/R-0028 via claude-adapt-rules' own review flow

@@ -13,7 +13,7 @@
       "source": {
         "source": "url",
         "url": "https://github.com/Patrick-DE/claude-adapt-rules.git",
-        "ref": "v0.1.11"
+        "ref": "v0.1.12"
       },
       "description": "Mines your Claude Code sessions for the corrections you had to repeat, then distils them into evidence-backed rules — per-repo automatically, global only with your approval.",
       "author": {
