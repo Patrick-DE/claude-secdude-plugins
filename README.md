@@ -1,11 +1,12 @@
 # secdude-plugins
 
-A Claude Code plugin marketplace. One catalog, two plugins.
+A Claude Code plugin marketplace. One catalog, three plugins.
 
 | Plugin | What it does | Runtime | Source |
 | --- | --- | --- | --- |
 | `claude-adapt-rules` | Mines your sessions for the corrections you had to repeat, then distils them into evidence-backed rules — per-repo automatically, global only with your approval. | Python | [Patrick-DE/claude-adapt-rules](https://github.com/Patrick-DE/claude-adapt-rules) |
 | `claude-idle-shutdown` | Arms a watchdog that powers the machine off once every Claude session on it has gone idle. | Node | [Patrick-DE/claude-idle-shutdown](https://github.com/Patrick-DE/claude-idle-shutdown) |
+| `claude-refusal-detector` | Detects LLM safety triggers and pinpoints minimal refusal text. | Python | [Patrick-DE/claude-refusal-detector](https://github.com/Patrick-DE/claude-refusal-detector) |
 
 ## Install
 
@@ -25,6 +26,10 @@ Then install whichever plugins you want:
 /plugin install claude-idle-shutdown@secdude-plugins
 ```
 
+```bash
+/plugin install claude-refusal-detector@secdude-plugins
+```
+
 Pull catalog changes later with `/plugin marketplace update secdude-plugins`.
 
 ## What lives here
@@ -34,12 +39,12 @@ no plugin code. Each plugin stays in its own repository with its own tests, vers
 tags; the catalog points at them with `github` sources. Cloning this repo gets you the index, not
 the plugins.
 
-That split is deliberate: the two plugins have different toolchains (Python vs. Node) and different
-release cadences, and neither should be forced to move when the other ships.
+That split is deliberate: the three plugins have different toolchains (Python vs. Node) and different
+release cadences, and none should be forced to move when another ships.
 
 `claude-adapt-rules` also ships its own single-plugin marketplace, named `claude-adapt-rules`. It
 still works and is not going away — if you added it already, nothing to do. This catalog is the one
-that carries both plugins.
+that carries all three plugins.
 
 ## Versions and pinning
 

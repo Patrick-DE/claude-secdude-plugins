@@ -1,10 +1,9 @@
 {
-  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
   "name": "secdude-plugins",
   "description": "Claude Code plugins by secdude: agents that learn from your corrections, and machines that shut themselves down when the work is finished.",
   "owner": {
     "name": "Patrick Eisenschmidt",
-    "email": "support@secdude.de",
     "url": "https://github.com/Patrick-DE"
   },
   "plugins": [
@@ -12,13 +11,12 @@
       "name": "claude-adapt-rules",
       "source": {
         "source": "url",
-        "url": "https://github.com/Patrick-DE/claude-adapt-rules.git",
-        "ref": "v0.1.13"
+        "url": "https://github.com/Patrick-DE/claude-adapt-rules.git"
       },
       "description": "Mines your Claude Code sessions for the corrections you had to repeat, then distils them into evidence-backed rules — per-repo automatically, global only with your approval.",
       "author": {
         "name": "Patrick Eisenschmidt",
-        "email": "support@secdude.de"
+        "url": "https://github.com/Patrick-DE"
       },
       "homepage": "https://github.com/Patrick-DE/claude-adapt-rules#readme",
       "repository": "https://github.com/Patrick-DE/claude-adapt-rules",
@@ -41,13 +39,12 @@
       "name": "claude-idle-shutdown",
       "source": {
         "source": "url",
-        "url": "https://github.com/Patrick-DE/claude-idle-shutdown.git",
-        "ref": "v0.1.0"
+        "url": "https://github.com/Patrick-DE/claude-idle-shutdown.git"
       },
       "description": "Arms a watchdog that powers the machine off once every Claude session on it has gone idle.",
       "author": {
         "name": "Patrick Eisenschmidt",
-        "email": "support@secdude.de"
+        "url": "https://github.com/Patrick-DE"
       },
       "homepage": "https://github.com/Patrick-DE/claude-idle-shutdown#readme",
       "repository": "https://github.com/Patrick-DE/claude-idle-shutdown",
@@ -63,6 +60,30 @@
       "tags": [
         "requires-node",
         "powers-off-your-machine"
+      ]
+    },
+    {
+      "name": "claude-refusal-detector",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/Patrick-DE/claude-refusal-detector.git"
+      },
+      "description": "Detects LLM safety triggers and pinpoints minimal refusal text.",
+      "author": {
+        "name": "Patrick Eisenschmidt",
+        "url": "https://github.com/Patrick-DE"
+      },
+      "homepage": "https://github.com/Patrick-DE/claude-refusal-detector#readme",
+      "repository": "https://github.com/Patrick-DE/claude-refusal-detector",
+      "license": "MIT",
+      "category": "security",
+      "keywords": [
+        "refusal",
+        "safety",
+        "diagnosis",
+        "ddmin",
+        "delta-debugging",
+        "minimal-deletion"
       ]
     }
   ]
